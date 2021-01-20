@@ -28,11 +28,11 @@ class Wanderer(object):
         self.extractLevels()
 
     def draw(self, canvas):
-        self.drawHud(canvas)
         self.drawCharMap(canvas)
         self.drawWalls(canvas)
         self.drawBoss(canvas)
         self.drawSkeleton(canvas)
+        self.drawHud(canvas)
 
     def drawCharMap(self,canvas):
         # Draw background
@@ -74,6 +74,7 @@ class Wanderer(object):
         canvas.create_image(self.bossXY[0] * 90 + 9, self.bossXY[1] * 90 + 9, anchor=NW, image=self.bossImage)
 
     def drawHud(self,canvas):
+        print("loaded")
         canvas.create_text(650, 20, fill="white", font=self.hudFontStyle, text="Hero (Level {}) HP: {}/10 | DP: {} | SP: {}".format(self.charLvl, self.charHP, self.charDP, self.charSP))
 
     def extractLevels(self):
